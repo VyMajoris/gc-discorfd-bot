@@ -5,14 +5,13 @@ import { UsersController } from './users/users.controller';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MissionsController } from './missions/missions.controller';
-import { MongooseModule } from '@nestjs/mongoose';
 import { MongoModule } from 'nest-mongodb';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     BotModule,
-    MongoModule.forRoot(process.env.MONGO_HOST, 'dev'),
+    MongoModule.forRoot(process.env.MONGO_HOST, 'prod'),
   ],
   controllers: [UsersController, MissionsController, AppController],
   providers: [AppService],
